@@ -4,8 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./css/style.css" media="all">
+    <script src="./js/bundle.js"></script>
 </head>
 <body>
+    <div id="app">
+        <h2></h2>
+    </div>
+
+    <form v-on:submit.prevent="">
+        <h3>Currency Converter</h3>
+        <input type="number" v-model.number="" />
+        <input type="number" v-model.number="" />
+        <input type="submit" value="test"/>
+      </form>
     
 </body>
 </html>
