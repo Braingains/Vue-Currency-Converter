@@ -7,11 +7,20 @@ document.addEventListener("DOMContentLoaded", () => {
       exchangeRates: [], //this array now contains data taken from API with fetchExchangeRates method, which is mounted (run at start)
       base: 0,
       date: "",
-      selectedCurrency: 0
+      selectedCurrency: 0,
+      amountToConvert: null,
+      convertFrom: null,
+      convertTo: null
     },
     computed:{ 
-      }
-
+          calculatedResult: function() {
+            if (this.convertTo === 'GBP') {
+            return this.amountToConvert / this.exchangeRates['GBP']
+            }
+            else {
+            return this.amountToConvert * this.exchangeRates['GBP']
+          }
+          }
     },
     mounted: function(){
       this.fetchExchangeRates()

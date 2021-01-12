@@ -9,15 +9,17 @@
 </head>
 <body>
     <div id="app">
-        <h2></h2>
-    </div>
+        <h2>Currency Converter</h2>
+        
 
-    <form v-on:submit.prevent="">
-        <h3>Currency Converter</h3>
-        <input type="number" v-model.number="" />
-        <input type="number" v-model.number="" />
-        <input type="submit" value="test"/>
-      </form>
-    
+        <input type="number" v-model="amountToConvert">
+        <select v-model="convertTo">
+            <option value="EUR">Convert to GBP</option>
+            <option value="GBP">Convert to EUR</option>
+        </select>
+        <h2>{{ calculatedResult }}</h2>
+
+
+    </div>
 </body>
 </html>
