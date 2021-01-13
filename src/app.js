@@ -7,7 +7,10 @@ document.addEventListener("DOMContentLoaded", () => {
       exchangeRates: [], //this array now contains data taken from API with fetchExchangeRates method, which is mounted (run at start)
       base: 0,
       date: "",
-      selectedCurrency: 0,
+      selectedCurrency: { 
+        rate:null,
+        code:null
+        },
       amountToConvert: null,
       convertFrom: null,
       convertTo: null
@@ -15,10 +18,12 @@ document.addEventListener("DOMContentLoaded", () => {
     computed:{ 
           calculatedResult: function() {
             if (this.convertTo === 'GBP') {
-            return this.amountToConvert / this.exchangeRates['GBP']
+              const result = (this.amountToConvert / this.selectedCurrency.rate).toFixed(2)
+            return result
             }
             else {
-            return this.amountToConvert * this.exchangeRates['GBP']
+              const result = (this.amountToConvert * this.selectedCurrency.rate).toFixed(2)
+            return result
           }
           }
     },

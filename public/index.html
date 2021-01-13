@@ -10,15 +10,20 @@
 <body>
     <div id="app">
         <h2>Currency Converter</h2>
-        
-
-        <input type="number" v-model="amountToConvert">
+        <div>
         <select v-model="convertTo">
-            <option value="EUR">Convert to GBP</option>
+            <option value="EUR">Convert from EUR</option>
             <option value="GBP">Convert to EUR</option>
         </select>
-        <h2>{{ calculatedResult }}</h2>
-
+    </div>
+    <div>
+        <input type="number" v-model="amountToConvert">
+        <select v-model="selectedCurrency">
+            <option v-for="(key, value) in exchangeRates" :value="{code: value, rate: key}">{{ value }}</option>
+        </select>
+        
+        <h2 v-if="calculatedResult != 0.00">{{ calculatedResult }} {{ selectedCurrency.code }}</h2>
+    </div>
 
     </div>
 </body>
